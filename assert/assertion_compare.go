@@ -10,10 +10,17 @@ func Equal(e1 interface{}, e2 interface{}) error {
 }
 
 func Nil(e1 interface{}) error {
-	if IsNil(e1) {
+	if isNil(e1) {
 		return nil
 	}
 	return fmt.Errorf(`Test failed: Expected "%s" to be nil, but got %s"`, e1, e1)
+}
+
+func NotNil(e1 interface{}) error {
+	if isNil(e1) {
+		return fmt.Errorf(`Test failed: Expected "%s" to be nil, but got %s"`, e1, e1)
+	}
+	return nil
 }
 
 func Empty(e1 []interface{}) error {

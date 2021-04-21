@@ -2,14 +2,14 @@ package assert
 
 import "reflect"
 
-func IsNil(obj interface{}) bool {
+func isNil(obj interface{}) bool {
 	if obj == nil {
 		return true
 	}
 
-	value := reflect.TypeOf(obj)
+	value := reflect.ValueOf(obj)
 
-	if value == nil {
+	if value.IsNil() {
 		return true
 	}
 	return false
