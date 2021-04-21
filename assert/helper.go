@@ -2,7 +2,7 @@ package assert
 
 import "reflect"
 
-func isNil(obj interface{}) bool {
+func IsNil(obj interface{}) bool {
 	if obj == nil {
 		return true
 	}
